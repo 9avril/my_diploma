@@ -1,36 +1,62 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
 
 html,
 body,
 #root {
-	height: 100%;
-	margin: 0;
+  height: 100%;
+  margin: 0;
 }
 
 .flex-container {
-	display: flex;
-	flex-direction: column;
-	height: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .ag-theme-alpine {
-	height: 100%;
-	width: 100%;
-	font-family: 'Josefin Sans', sans-serif; /* Используйте шрифт Josefin Sans */
+  height: 100%;
+  width: 100%;
+  font-family: "Josefin Sans", sans-serif; /* Используйте шрифт Josefin Sans */
 }
 
 /* Измените стиль заголовков таблицы */
 .ag-theme-alpine .ag-header-cell {
-	background-color: #f0f2f5;
-	color: #000;
-	border-right: 1px solid #d9d9d9;
+  background-color: #f0f2f5;
+  color: #000;
+  border-right: 1px solid #d9d9d9;
 }
 
 /* Измените стиль строк таблицы */
 .ag-theme-alpine .ag-row {
-	border-bottom: 1px solid #d9d9d9;
+  border-bottom: 1px solid #d9d9d9;
 }
 
 .ag-custom-column-bg {
-	background-color: #222;
+  background-color: #222;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: #f3f3f3;
+  padding: 1rem;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin-right: 1rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+nav ul li a.active {
+  font-weight: bold;
+  color: #007bff;
 }
