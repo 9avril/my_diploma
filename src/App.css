@@ -19,6 +19,10 @@ body,
   font-family: "Josefin Sans", sans-serif; /* Используйте шрифт Josefin Sans */
 }
 
+.obstacles-table-wrapper {
+  height: 90%;
+}
+
 /* Измените стиль заголовков таблицы */
 .ag-theme-alpine .ag-header-cell {
   background-color: #f0f2f5;

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { AgGridReact } from "ag-grid-react";
 import FieldVisibilityController from "../FieldVisibilityController";
 import obstaclesColumns from "../../data/obstaclesColumns.";
-import ACColumns from "../../data/ACColumns";
+import SignalLossCalculator from "../SignalLossCalculator";
 
 const ObstaclesTable = () => {
   const [obstacle, setObstacle] = useState([]);
@@ -23,7 +23,7 @@ const ObstaclesTable = () => {
 
   return (
     <div className="flex-container">
-      <div className="flex">
+      <div className="flex obstacles-table-wrapper">
         <div className="ag-theme-alpine w-full ml-3" style={{ flexGrow: 1 }}>
           <AgGridReact
             rowData={obstacle}
@@ -53,6 +53,7 @@ const ObstaclesTable = () => {
               columnApi={columnApi}
               columnDefs={obstaclesColumns}
             />
+            <SignalLossCalculator obstacles={obstacle} />
           </div>
         )}
       </div>

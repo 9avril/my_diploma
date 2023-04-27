@@ -56,13 +56,6 @@ const routerColumns = [
     autoHeight: true,
   },
   {
-    field: "antenna",
-    headerName: "Antenna",
-    sortable: true,
-    filter: "agTextColumnFilter",
-    autoHeight: true,
-  },
-  {
     field: "antenna_type",
     headerName: "Antenna Type",
     sortable: true,
