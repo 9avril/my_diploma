@@ -63,6 +63,15 @@ const routerColumns = [
     autoHeight: true,
   },
   {
+    field: "show_radiation_pattern",
+    headerName: "Show Radiation Pattern",
+    cellRenderer: "showPatternCellRenderer",
+    sortable: false,
+    filter: false,
+    width: 180,
+  },
+
+  {
     field: "ports_info",
     headerName: "Ports Info",
     sortable: true,

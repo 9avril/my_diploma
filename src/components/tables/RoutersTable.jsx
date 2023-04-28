@@ -2,10 +2,24 @@ import React, { useEffect, useState } from "react";
 import { AgGridReact } from "ag-grid-react";
 import FieldVisibilityController from "../FieldVisibilityController";
 import routerColumns from "../../data/routerColumns";
+import RadiationModal from "../RadiationModal";
+import ShowPatternCellRenderer from "../ShowPatternCellRenderer";
+
 const RoutersTable = () => {
   const [routers, setRouters] = useState([]);
   const [gridApi, setGridApi] = useState(null);
-  const [columnApi, setColumnApi] = useState(null); // Создайте новое состояние для columnApi
+  const [columnApi, setColumnApi] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [imgUrl, setImgUrl] = useState("");
+
+  const handleShowModal = (url) => {
+    setImgUrl(url);
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
 
   useEffect(() => {
     fetch("http://localhost:3001/routers")
@@ -15,9 +29,10 @@ const RoutersTable = () => {
 
   const onGridReady = (params) => {
     setGridApi(params.api);
-    setColumnApi(params.columnApi); // Установите columnApi
+    setColumnApi(params.columnApi);
     params.api.sizeColumnsToFit();
   };
+
   return (
     <div className="flex-container">
       <div className="flex">
@@ -42,6 +57,10 @@ const RoutersTable = () => {
                   params.node.rowIndex % 2 === 0 ? "#ffffff" : "#f3f3f3",
               };
             }}
+            context={{ handleShowModal }}
+            frameworkComponents={{
+              showPatternCellRenderer: ShowPatternCellRenderer,
+            }}
           />
         </div>
         {columnApi && (
@@ -53,6 +72,11 @@ const RoutersTable = () => {
           </div>
         )}
       </div>
+      <RadiationModal
+        show={showModal}
+        onHide={handleCloseModal}
+        imgUrl={imgUrl}
+      />
     </div>
   );
 };
