@@ -1,66 +1,84 @@
-@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
 html,
 body,
 #root {
-  height: 100%;
-  margin: 0;
+	height: 100%;
+	margin: 0;
+}
+
+body {
+	background: rgb(0, 0, 20);
+	background: linear-gradient(
+		152deg,
+		rgba(0, 0, 20, 1) 55%,
+		rgba(0, 26, 80, 1) 99%,
+		rgba(3, 25, 70, 1) 100%,
+		rgba(0, 46, 128, 1) 100%,
+		rgba(0, 212, 255, 1) 100%
+	);
 }
 
 .flex-container {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
 }
 
 .ag-theme-alpine {
-  height: 100%;
-  width: 100%;
-  font-family: "Josefin Sans", sans-serif; /* Используйте шрифт Josefin Sans */
+	height: 100%;
+	width: 100%;
+	font-family: 'Josefin Sans', sans-serif; /* Используйте шрифт Josefin Sans */
 }
 
 .obstacles-table-wrapper {
-  height: 90%;
+	height: 90%;
 }
 
 /* Измените стиль заголовков таблицы */
 .ag-theme-alpine .ag-header-cell {
-  background-color: #f0f2f5;
-  color: #000;
-  border-right: 1px solid #d9d9d9;
+	background-color: #f0f2f5;
+	color: #000;
+	border-right: 1px solid #d9d9d9;
 }
 
 /* Измените стиль строк таблицы */
 .ag-theme-alpine .ag-row {
-  border-bottom: 1px solid #d9d9d9;
+	border-bottom: 1px solid #d9d9d9;
 }
 
 .ag-custom-column-bg {
-  background-color: #222;
+	background-color: #222;
 }
 
 nav {
-  display: flex;
-  justify-content: space-around;
-  background-color: #f3f3f3;
-  padding: 1rem;
+	display: flex;
+	justify-content: space-around;
+	background-color: #f3f3f3;
+	padding: 1rem;
 }
 
 nav ul {
-  display: flex;
-  list-style: none;
+	display: flex;
+	list-style: none;
 }
 
 nav ul li {
-  margin-right: 1rem;
+	margin-right: 1rem;
 }
 
 nav ul li a {
-  text-decoration: none;
-  color: #333;
+	text-decoration: none;
+	color: #333;
 }
 
 nav ul li a.active {
-  font-weight: bold;
-  color: #007bff;
+	font-weight: bold;
+	color: #007bff;
+}
+
+.plot-container {
+	border-radius: 30px;
+	overflow: hidden;
+	position: relative;
 }

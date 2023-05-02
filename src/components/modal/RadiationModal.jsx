@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../RadiationModal.css";
+import "./RadiationModal.css";
 import { useRef } from "react";
 import { useEffect } from "react";
 
@@ -30,6 +30,7 @@ const RadiationModal = ({ show, onHide, imgUrl }) => {
       onClick={onHide}
       onKeyDown={handleKeyDown}
       tabIndex="0"
+      ref={modalRef}
     >
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         {loading ? (
