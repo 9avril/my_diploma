@@ -1,5 +1,5 @@
 import React from "react";
-import radiationPattern from "../../data/radiationPattern";
+import radiationPattern from "../../data/columns/radiationPattern";
 
 const ShowPatternCellRenderer = (props) => {
   const { data, context } = props;

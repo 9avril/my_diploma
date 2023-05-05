@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { AgGridReact } from "ag-grid-react";
-import FieldVisibilityController from "../FieldVisibilityController";
-import obstaclesColumns from "../../data/obstaclesColumns.";
-import SignalLossCalculator from "../SignalLossCalculator";
+import FieldVisibilityController from "../visibility/FieldVisibilityController";
+import obstaclesColumns from "../../data/columns/obstaclesColumns.";
+import SignalLossCalculator from "../calculator/SignalLossCalculator";
 
 const ObstaclesTable = () => {
   const [obstacle, setObstacle] = useState([]);
@@ -17,7 +17,7 @@ const ObstaclesTable = () => {
 
   const onGridReady = (params) => {
     setGridApi(params.api);
-    setColumnApi(params.columnApi); // Установите columnApi
+    setColumnApi(params.columnApi);
     params.api.sizeColumnsToFit();
   };
 
@@ -41,8 +41,8 @@ const ObstaclesTable = () => {
             suppressRowClickSelection
             getRowStyle={(params) => {
               return {
-                backgroundColor:
-                  params.node.rowIndex % 2 === 0 ? "#ffffff" : "#f3f3f3",
+                // backgroundColor:
+                //   params.node.rowIndex % 2 === 0 ? "#ffffff" : "#f3f3f3",
               };
             }}
           />

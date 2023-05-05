@@ -1,0 +1,19 @@
+.container {
+  /*border: 1px solid #ccc;*/
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: #0f2027;
+  background: -webkit-linear-gradient(to right, #2c5364, #203a43, #0f2027);
+  background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
+  margin-top: 20px;
+}
+
+.textWhite {
+  color: #ffffff;
+}
+
+.inputSelect {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

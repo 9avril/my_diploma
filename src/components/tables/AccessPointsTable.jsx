@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { AgGridReact } from "ag-grid-react";
-import FieldVisibilityController from "../FieldVisibilityController";
-import ACColumns from "../../data/ACColumns";
-import routerColumns from "../../data/routerColumns";
+import FieldVisibilityController from "../visibility/FieldVisibilityController";
+import ACColumns from "../../data/columns/ACColumns";
+import routerColumns from "../../data/columns/routerColumns";
 
 const AccessPointsTable = () => {
   const [accessPoint, setAccessPoint] = useState([]);

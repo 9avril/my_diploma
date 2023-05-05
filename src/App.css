@@ -1,84 +1,177 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
 
 html,
 body,
 #root {
-	height: 100%;
-	margin: 0;
+  height: 100%;
+  margin: 0;
 }
 
 body {
-	background: rgb(0, 0, 20);
-	background: linear-gradient(
-		152deg,
-		rgba(0, 0, 20, 1) 55%,
-		rgba(0, 26, 80, 1) 99%,
-		rgba(3, 25, 70, 1) 100%,
-		rgba(0, 46, 128, 1) 100%,
-		rgba(0, 212, 255, 1) 100%
-	);
+  background: #0f2027;
+  background: -webkit-linear-gradient(to right, #2c5364, #203a43, #0f2027);
+  background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
 }
 
 .flex-container {
-	display: flex;
-	flex-direction: column;
-	height: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .ag-theme-alpine {
-	height: 100%;
-	width: 100%;
-	font-family: 'Josefin Sans', sans-serif; /* Используйте шрифт Josefin Sans */
+  height: 100%;
+  width: 100%;
+  font-family: "Josefin Sans", sans-serif; /* Используйте шрифт Josefin Sans */
 }
 
 .obstacles-table-wrapper {
-	height: 90%;
+  height: 90%;
+}
+
+.ag-theme-alpine {
+  background-color: #0f2027;
 }
 
 /* Измените стиль заголовков таблицы */
 .ag-theme-alpine .ag-header-cell {
-	background-color: #f0f2f5;
-	color: #000;
-	border-right: 1px solid #d9d9d9;
+  background-color: #1a3b4c; /* Глубокий синий цвет для заголовков */
+  color: #f0f2f5;
+  border-right: 1px solid #2c5364;
 }
 
 /* Измените стиль строк таблицы */
 .ag-theme-alpine .ag-row {
-	border-bottom: 1px solid #d9d9d9;
+  border-bottom: 1px solid #2c5364;
 }
 
-.ag-custom-column-bg {
-	background-color: #222;
+/* Измените стиль фона четных строк таблицы */
+.ag-theme-alpine .ag-row:nth-child(even) {
+  background-color: #1a3b4c; /* Глубокий синий для четных строк */
 }
 
-nav {
-	display: flex;
-	justify-content: space-around;
-	background-color: #f3f3f3;
-	padding: 1rem;
+/* Измените стиль фона нечетных строк таблицы */
+.ag-theme-alpine .ag-row:nth-child(odd) {
+  background-color: #112e3d; /* Используйте средний цвет вашей цветовой схемы для нечетных строк */
 }
 
-nav ul {
-	display: flex;
-	list-style: none;
+/* Измените стиль выделенных строк таблицы */
+.ag-theme-alpine .ag-row.ag-row-selected {
+  background-color: #0f2027; /* Используйте самый темный цвет вашей цветовой схемы для выделенных строк */
+  color: #ffffff;
 }
 
-nav ul li {
-	margin-right: 1rem;
+/* Измените стиль текста ячеек таблицы */
+.ag-theme-alpine .ag-cell {
+  color: #f0f2f5;
 }
 
+/* Измените стиль текста ячеек таблицы при наведении */
+.ag-theme-alpine .ag-row:hover .ag-cell {
+  color: #ffffff;
+}
+
+/* Измените цвет фона ячеек таблицы при наведении */
+.ag-theme-alpine .ag-row.ag-row-hover {
+  background-color: #206182; /* Используйте цвет, который немного темнее, чем средний цвет вашей цветовой схемы */
+}
+
+.ag-theme-alpine .ag-body-horizontal-scroll-viewport,
+.ag-theme-alpine .ag-body-vertical-scroll-viewport {
+  overflow: auto !important;
+}
+
+.ag-theme-alpine .ag-body-horizontal-scroll-viewport::-webkit-scrollbar,
+.ag-theme-alpine .ag-body-vertical-scroll-viewport::-webkit-scrollbar {
+  width: 25px; /* Увеличьте ширину вертикальной полосы прокрутки */
+  height: 19px; /* Увеличьте высоту горизонтальной полосы прокрутки */
+}
+
+.ag-theme-alpine .ag-body-horizontal-scroll-viewport::-webkit-scrollbar-thumb,
+.ag-theme-alpine .ag-body-vertical-scroll-viewport::-webkit-scrollbar-thumb {
+  background-color: #2c5364;
+  border-radius: 2px;
+}
+
+.ag-theme-alpine
+  .ag-body-horizontal-scroll-viewport::-webkit-scrollbar-thumb:hover,
+.ag-theme-alpine
+  .ag-body-vertical-scroll-viewport::-webkit-scrollbar-thumb:hover {
+  background-color: #1b383f;
+}
+
+.ag-theme-alpine .ag-body-horizontal-scroll-viewport::-webkit-scrollbar-track,
+.ag-theme-alpine .ag-body-vertical-scroll-viewport::-webkit-scrollbar-track {
+  background-color: #0f2027;
+  border-radius: 2px;
+}
+
+.ag-theme-alpine .ag-root-wrapper {
+  background-color: #0f2027;
+}
+
+.ag-theme-alpine .ag-body-horizontal-scroll-viewport,
+.ag-theme-alpine .ag-body-vertical-scroll-viewport {
+  background-color: #0f2027;
+}
+
+.ag-theme-alpine .ag-body-horizontal-scroll-viewport::-webkit-scrollbar-corner,
+.ag-theme-alpine .ag-body-vertical-scroll-viewport::-webkit-scrollbar-corner {
+  background-color: #0f2027;
+}
+
+/* Добавьте стили для размытия фона навбара */
+nav::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  filter: blur(10px);
+  opacity: 0.8;
+  z-index: -1;
+}
+
+/* Измените стили для навбара */
+.nav-style {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 20, 0.1);
+  padding: 1rem;
+}
+
+.nav-left {
+  margin-right: auto;
+}
+
+/* Увеличьте размер текста и сделайте его светлым */
 nav ul li a {
-	text-decoration: none;
-	color: #333;
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: #f1f1f1;
 }
 
-nav ul li a.active {
-	font-weight: bold;
-	color: #007bff;
+/* Измените активный и hover стили */
+nav ul li a.active,
+nav ul li a:hover {
+  font-weight: bold;
+  color: #ffffff;
 }
 
+/* Отключите ссылку на Access Points */
+nav ul li a.disabled {
+  pointer-events: none;
+}
 .plot-container {
-	border-radius: 30px;
-	overflow: hidden;
-	position: relative;
+  position: relative;
+  display: inline-block;
+  background: #0f2027;
+  background: -webkit-linear-gradient(to right, #2c5364, #203a43, #0f2027);
+  background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
+  border-radius: 8px;
+  overflow: hidden;
 }
