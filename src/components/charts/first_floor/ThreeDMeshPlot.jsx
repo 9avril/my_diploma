@@ -2,9 +2,10 @@ import React from "react";
 import Plot from "react-plotly.js";
 import firstFloorData from "../../../data/data-floors/firstFloor";
 import convexHull from "convex-hull";
+import "../plotstyles.css";
 
-const ClusterGraphFirstFloor = () => {
-  const data = firstFloorData[0].APFound;
+const ThreeDMeshPlot = () => {
+  const data = firstFloorData.flatMap((floor) => floor.APFound);
 
   const unpack = (key) => {
     return data.flatMap((item) => item.LS.map((row) => row[key]));
@@ -43,6 +44,7 @@ const ClusterGraphFirstFloor = () => {
 
   const layout = {
     autosize: true,
+    width: 500,
     height: 500,
     scene: {
       aspectratio: {
@@ -84,23 +86,15 @@ const ClusterGraphFirstFloor = () => {
       },
     },
     title: "3D Mesh Plot",
-    width: 477,
     margin: { l: 30, r: 30, b: 30, t: 30 },
     plot_bgcolor: "transparent",
     paper_bgcolor: "transparent",
     font: { color: "#FFFFFF" },
   };
 
-  const plotStyle = {
-    marginLeft: "10px",
-  };
+  const plotStyle = {};
 
-  const plotContainerStyle = {
-    display: "inline-block",
-    padding: "10px",
-    background: "linear-gradient(to right, #2c5364, #203a43, #0f2027)",
-    borderRadius: "10px",
-  };
+  const plotContainerStyle = {};
 
   return (
     <div style={plotStyle}>
@@ -113,4 +107,4 @@ const ClusterGraphFirstFloor = () => {
   );
 };
 
-export default ClusterGraphFirstFloor;
+export default ThreeDMeshPlot;

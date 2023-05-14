@@ -1,9 +1,9 @@
 import React from "react";
 import Plot from "react-plotly.js";
-import firstFloorData from "../../../data/data-floors/firstFloor";
 import "../plotstyles.css";
-const RibbonChartFirstFloor = () => {
-  const data = firstFloorData[0].APFound;
+import secondFloorData from "../../../data/data-floors/secondFloor";
+const RibbonSecFloor = () => {
+  const data = secondFloorData[0].APFound;
 
   const traces = data.map((item, index) => {
     const xValues = Array.from({ length: item.LS.length }, (_, i) => i);
@@ -90,4 +90,4 @@ const RibbonChartFirstFloor = () => {
   );
 };
 
-export default RibbonChartFirstFloor;
+export default RibbonSecFloor;

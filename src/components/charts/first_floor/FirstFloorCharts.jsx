@@ -1,23 +1,35 @@
 import React from "react";
-import Topographical3DSurfaceFirstF from "./Topographical3DSurfaceFirstF";
+import Histogram2DContourPlot from "./Histogram2DContourPlot";
+import LinePlotWithAnnotations from "./LinePlotWithAnnotations";
 import RibbonChartFirstFloor from "./RibbonChartFirstFloor";
-import ClusterGraphFirstFloor from "./ClusterGraphFirstFloor";
+import SplomFirstFloor from "./SplomFirstFloor";
+import "../plotstyles.css";
+import Topographical3DSurfaceFirstF from "./Topographical3DSurfaceFirstF";
+import ThreeDMeshPlot from "./ThreeDMeshPlot";
 
-const FirstFloorCharts = () => {
-  const containerStyle = {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-around",
-    flexWrap: "wrap",
-  };
-
+const App = () => {
   return (
-    <div style={containerStyle}>
-      <Topographical3DSurfaceFirstF />
-      <RibbonChartFirstFloor />
-      <ClusterGraphFirstFloor />
+    <div className="plot-grid">
+      <div className="plot-wrapper">
+        <Topographical3DSurfaceFirstF />
+      </div>
+      <div className="plot-wrapper">
+        <ThreeDMeshPlot />
+      </div>
+      <div className="plot-wrapper">
+        <RibbonChartFirstFloor />
+      </div>
+      <div className="plot-wrapper">
+        <Histogram2DContourPlot />
+      </div>
+      <div className="plot-wrapper">
+        <LinePlotWithAnnotations />
+      </div>
+      <div className="plot-wrapper">
+        <SplomFirstFloor />
+      </div>
     </div>
   );
 };
 
-export default FirstFloorCharts;
+export default App;

@@ -1,9 +1,9 @@
 import React from "react";
 import Plot from "react-plotly.js";
-import firstFloorData from "../../../data/data-floors/firstFloor";
+import secondFloorData from "../../../data/data-floors/secondFloor";
 import "../plotstyles.css";
-const Topographical3DSurfaceFirstF = () => {
-  const data = firstFloorData[0].APFound;
+const Topographical3DSurfaceSecFloor = () => {
+  const data = secondFloorData.flatMap((floor) => floor.APFound);
 
   const traces = data
     .filter((item) => item.LS && item.LS.length > 0 && item.LS[0].length > 0)
@@ -80,4 +80,4 @@ const Topographical3DSurfaceFirstF = () => {
   );
 };
 
-export default Topographical3DSurfaceFirstF;
+export default Topographical3DSurfaceSecFloor;

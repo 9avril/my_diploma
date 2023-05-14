@@ -1,0 +1,12 @@
+.plot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.plot-wrapper {
+  display: inline-block;
+  padding: 10px;
+  background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
+  border-radius: 10px;
+}
