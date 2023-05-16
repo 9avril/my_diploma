@@ -1,11 +1,10 @@
 import React from "react";
 import Plot from "react-plotly.js";
-import firstFloorData from "../../../data/data-floors/firstFloor";
 import convexHull from "convex-hull";
 import "../plotstyles.css";
 
-const ThreeDMeshPlot = () => {
-  const data = firstFloorData.flatMap((floor) => floor.APFound);
+const ThreeDMeshPlot = ({ floorData }) => {
+  const data = floorData.flatMap((floor) => floor.APFound);
 
   const unpack = (key) => {
     return data.flatMap((item) => item.LS.map((row) => row[key]));

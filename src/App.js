@@ -1,10 +1,10 @@
 import React from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "./App.css";
-import FirstFloorCharts from "./components/charts/first_floor/FirstFloorCharts.jsx";
-import SecondFloorCharts from "./components/charts/second_floor/SecondFloorCharts.jsx";
-import ThirdFloorCharts from "./components/charts/third_floor/ThirdFloorCharts.jsx";
-import FourthFloorCharts from "./components/charts/fourth_floor/FourthFloorCharts.jsx";
+import FirstFloorCharts from "./components/charts/floor_rendering/FirstFloorCharts.jsx";
+import SecondFloorCharts from "./components/charts/floor_rendering/SecondFloorCharts.jsx";
+import ThirdFloorCharts from "./components/charts/floor_rendering/ThirdFloorCharts.jsx";
+import FourthFloorCharts from "./components/charts/floor_rendering/FourthFloorCharts.jsx";
 import AccessPointsTable from "./components/tables/AccessPointsTable";
 import ObstaclesTable from "./components/tables/ObstaclesTable";
 import RoutersTable from "./components/tables/RoutersTable";

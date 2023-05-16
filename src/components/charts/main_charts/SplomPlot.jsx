@@ -1,10 +1,9 @@
 import React from "react";
 import Plot from "react-plotly.js";
 import "../plotstyles.css";
-import secondFloorData from "../../../data/data-floors/secondFloor";
 
-const SplomSecFloor = () => {
-  const data = secondFloorData[0].APFound;
+const SplomPlot = ({ floorData }) => {
+  const data = floorData[0].APFound;
   const dimensions = ["x", "y", "z"].map((axis, index) => {
     return {
       label: axis.toUpperCase(),
@@ -60,4 +59,4 @@ const SplomSecFloor = () => {
   );
 };
 
-export default SplomSecFloor;
+export default SplomPlot;

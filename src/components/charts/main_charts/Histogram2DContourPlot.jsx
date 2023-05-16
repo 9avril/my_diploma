@@ -1,9 +1,8 @@
 import React from "react";
 import Plot from "react-plotly.js";
 import "../plotstyles.css";
-import secondFloorData from "../../../data/data-floors/secondFloor";
-const Histogram2DSecFloor = () => {
-  const data = secondFloorData[0].APFound;
+const Histogram2DContourPlot = ({ floorData }) => {
+  const data = floorData[0].APFound;
 
   const x = data.flatMap((item) => item.LS.map((row) => row[0]));
   const y = data.flatMap((item) => item.LS.map((row) => row[1]));
@@ -59,4 +58,4 @@ const Histogram2DSecFloor = () => {
   );
 };
 
-export default Histogram2DSecFloor;
+export default Histogram2DContourPlot;

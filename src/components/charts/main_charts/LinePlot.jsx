@@ -3,8 +3,8 @@ import Plot from "react-plotly.js";
 import firstFloorData from "../../../data/data-floors/firstFloor";
 import "../plotstyles.css";
 
-const LinePlotWithAnnotations = () => {
-  const data = firstFloorData[0].APFound;
+const LinePlot = ({ floorData }) => {
+  const data = floorData[0].APFound;
 
   const xValues = Array.from({ length: data[0].LS.length }, (_, i) => i);
   const traces = data.map((item, index) => {
@@ -80,4 +80,4 @@ const LinePlotWithAnnotations = () => {
   );
 };
 
-export default LinePlotWithAnnotations;
+export default LinePlot;
