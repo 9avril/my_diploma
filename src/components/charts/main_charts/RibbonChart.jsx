@@ -1,14 +1,19 @@
 import React from "react";
 import Plot from "react-plotly.js";
 import "../plotstyles.css";
+
 const RibbonChart = ({ floorData }) => {
   const data = floorData[0].APFound;
 
   const traces = data.map((item, index) => {
     const xValues = Array.from({ length: item.LS.length }, (_, i) => i);
-    const zValues = item.LS.map(
-      (row) => row.reduce((a, b) => a + b, 0) / row.length
-    );
+    const zValues = item.LS.map((row, index) => {
+      if (!Array.isArray(row)) {
+        console.error(`Error at index ${index}:`, row);
+        return 0; // Or some other default value
+      }
+      return row.reduce((a, b) => a + b, 0) / row.length;
+    });
 
     const yValues = Array(item.LS[0].length).fill(item.CH);
     const minZ = Math.min(...zValues);
