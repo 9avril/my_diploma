@@ -8,9 +8,13 @@ body,
 }
 
 body {
-  background: #0f2027;
-  background: -webkit-linear-gradient(to right, #2c5364, #203a43, #0f2027);
-  background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
+  background: rgb(23, 24, 43);
+  background: linear-gradient(
+    90deg,
+    rgba(11, 17, 41, 1) 14%,
+    rgba(11, 26, 44, 1) 65%,
+    rgba(12, 18, 36, 1) 98%
+  );
 }
 
 .flex-container {
@@ -30,34 +34,34 @@ body {
 }
 
 .ag-theme-alpine {
-  background-color: #0f2027;
+  background-color: #0b1129;
 }
 
 /* Измените стиль заголовков таблицы */
 .ag-theme-alpine .ag-header-cell {
-  background-color: #1a3b4c; /* Глубокий синий цвет для заголовков */
+  background-color: #0b1a2c; /* Глубокий синий цвет для заголовков */
   color: #f0f2f5;
-  border-right: 1px solid #2c5364;
+  border-right: 1px solid #121e35;
 }
 
 /* Измените стиль строк таблицы */
 .ag-theme-alpine .ag-row {
-  border-bottom: 1px solid #2c5364;
+  border-bottom: 1px solid #121e35;
 }
 
 /* Измените стиль фона четных строк таблицы */
 .ag-theme-alpine .ag-row:nth-child(even) {
-  background-color: #1a3b4c; /* Глубокий синий для четных строк */
+  background-color: #0b1a2c; /* Глубокий синий для четных строк */
 }
 
 /* Измените стиль фона нечетных строк таблицы */
 .ag-theme-alpine .ag-row:nth-child(odd) {
-  background-color: #112e3d; /* Используйте средний цвет вашей цветовой схемы для нечетных строк */
+  background-color: #0b1129; /* Используйте средний цвет вашей цветовой схемы для нечетных строк */
 }
 
 /* Измените стиль выделенных строк таблицы */
 .ag-theme-alpine .ag-row.ag-row-selected {
-  background-color: #0f2027; /* Используйте самый темный цвет вашей цветовой схемы для выделенных строк */
+  background-color: #0c1224; /* Используйте самый темный цвет вашей цветовой схемы для выделенных строк */
   color: #ffffff;
 }
 
@@ -73,58 +77,23 @@ body {
 
 /* Измените цвет фона ячеек таблицы при наведении */
 .ag-theme-alpine .ag-row.ag-row-hover {
-  background-color: #206182; /* Используйте цвет, который немного темнее, чем средний цвет вашей цветовой схемы */
+  background-color: #121e35; /* Используйте цвет, который немного темнее, чем средний цвет вашей цветовой схемы */
 }
 
 .ag-theme-alpine .ag-body-horizontal-scroll-viewport,
 .ag-theme-alpine .ag-body-vertical-scroll-viewport {
   overflow: auto !important;
-}
-
-.ag-theme-alpine .ag-body-horizontal-scroll-viewport::-webkit-scrollbar,
-.ag-theme-alpine .ag-body-vertical-scroll-viewport::-webkit-scrollbar {
-  width: 25px; /* Увеличьте ширину вертикальной полосы прокрутки */
-  height: 19px; /* Увеличьте высоту горизонтальной полосы прокрутки */
-}
-
-.ag-theme-alpine .ag-body-horizontal-scroll-viewport::-webkit-scrollbar-thumb,
-.ag-theme-alpine .ag-body-vertical-scroll-viewport::-webkit-scrollbar-thumb {
-  background-color: #2c5364;
-  border-radius: 2px;
-}
-
-.ag-theme-alpine
-  .ag-body-horizontal-scroll-viewport::-webkit-scrollbar-thumb:hover,
-.ag-theme-alpine
-  .ag-body-vertical-scroll-viewport::-webkit-scrollbar-thumb:hover {
-  background-color: #1b383f;
-}
-
-.ag-theme-alpine .ag-body-horizontal-scroll-viewport::-webkit-scrollbar-track,
-.ag-theme-alpine .ag-body-vertical-scroll-viewport::-webkit-scrollbar-track {
-  background-color: #0f2027;
-  border-radius: 2px;
+  background-color: #0b1a2c;
 }
 
 .ag-theme-alpine .ag-root-wrapper {
-  background-color: #0f2027;
-}
-
-.ag-theme-alpine .ag-body-horizontal-scroll-viewport,
-.ag-theme-alpine .ag-body-vertical-scroll-viewport {
-  background-color: #0f2027;
-}
-
-.ag-theme-alpine .ag-body-horizontal-scroll-viewport::-webkit-scrollbar-corner,
-.ag-theme-alpine .ag-body-vertical-scroll-viewport::-webkit-scrollbar-corner {
-  background-color: #0f2027;
+  background-color: #0b1a2c;
 }
 
 .bootstrap-navbar {
   background-color: rgba(0, 0, 20, 0.7) !important;
 }
 
-/* Обновленные стили для аккордеона */
 .nav-dropdown-item {
   color: #f1f1f1 !important;
   background-color: rgba(0, 0, 20, 0.7) !important;
