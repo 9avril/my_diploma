@@ -1,1 +1,2 @@
-My graduation project on the topic "Web application for visualization of the Wi-Fi network for the 1st - 4th floor of the GSU. Francisca Skaryna"
+Веб-приложение для визуализации Wi-Fi сети 1-4 этажа корпуса №5 ГГУ им. Ф. Скорины. 
+Стек: Node.js, Sqlite3, React, AG Grid, CSS, Tailwind, Ploty.js, Material UI, Heatmap.js 
