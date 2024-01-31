@@ -1,53 +1,83 @@
-import React, { useEffect, useState } from "react";
-import "./FieldVisibilityController.css";
+import Box from '@mui/material/Box'
+import Checkbox from '@mui/material/Checkbox'
+import List from '@mui/material/List'
+import ListItem from '@mui/material/ListItem'
+import Typography from '@mui/material/Typography'
+import { ThemeProvider, createTheme } from '@mui/material/styles'
+import React, { useEffect, useState } from 'react'
+
+const theme = createTheme({
+	palette: {
+		primary: {
+			main: 'rgba(20, 40, 70, 1)', // выбран второй цвет из вашей цветовой схемы
+		},
+		secondary: {
+			main: '#fff',
+		},
+	},
+})
 
 const FieldVisibilityController = ({ columnApi, columnDefs }) => {
-  const [columnVisibility, setColumnVisibility] = useState({});
+	const initialVisibility = columnDefs.reduce((accum, col) => {
+		accum[col.field] = true
+		return accum
+	}, {})
 
-  useEffect(() => {
-    if (columnApi) {
-      const initialVisibility = {};
-      columnDefs.forEach((col) => {
-        initialVisibility[col.field] = columnApi
-          .getColumn(col.field)
-          .isVisible();
-      });
-      setColumnVisibility(initialVisibility);
-    }
-  }, [columnApi, columnDefs]);
+	const [columnVisibility, setColumnVisibility] = useState(initialVisibility)
 
-  const handleChange = (field, isChecked) => {
-    if (columnApi) {
-      columnApi.setColumnVisible(field, isChecked);
-      setColumnVisibility({ ...columnVisibility, [field]: isChecked });
-    }
-  };
+	useEffect(() => {
+		if (columnApi) {
+			const initialVisibility = {}
+			columnDefs.forEach(col => {
+				initialVisibility[col.field] = true // Set default to true
+				columnApi.setColumnVisible(col.field, true) // Set default visibility in table to true
+			})
+			setColumnVisibility(initialVisibility)
+		}
+	}, [columnApi, columnDefs])
+	const handleChange = (field, isChecked) => {
+		if (columnApi) {
+			columnApi.setColumnVisible(field, isChecked)
+			setColumnVisibility({ ...columnVisibility, [field]: isChecked })
+		}
+	}
 
-  // Не рендерим компонент, если columnApi еще не установлен
-  if (!columnApi) {
-    return null;
-  }
+	if (!columnApi) {
+		return null
+	}
 
-  return (
-    <div className="field-visibility-controller">
-      <h3 className="field-visibility-title">Field Visibility</h3>
-      <ul className="field-visibility-list">
-        {columnDefs.map((col) => (
-          <li key={col.field} className="field-visibility-item">
-            <input
-              type="checkbox"
-              id={col.field}
-              className="field-visibility-checkbox"
-              checked={columnVisibility[col.field]}
-              onChange={(e) => handleChange(col.field, e.target.checked)}
-            />
-            <label htmlFor={col.field} className="field-visibility-label">
-              {col.headerName}
-            </label>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
-export default FieldVisibilityController;
+	return (
+		<ThemeProvider theme={theme}>
+			<Box
+				sx={{
+					bgcolor: 'primary.main', // цвет фона, соответствует вашей цветовой схеме
+					color: 'secondary.main', // цвет текста
+					padding: '1em',
+					borderRadius: '1em',
+					width: '320px',
+				}}
+			>
+				<Typography variant='h6' sx={{ marginBottom: 0 }}>
+					Field Visibility
+				</Typography>
+
+				<List>
+					{columnDefs.map(col => (
+						<ListItem key={col.field} sx={{ padding: 0 }}>
+							<Checkbox
+								checked={columnVisibility[col.field]}
+								onChange={e =>
+									handleChange(col.field, e.target.checked)
+								}
+								color='secondary'
+								sx={{ marginRight: 0 }}
+							/>
+							<Typography>{col.headerName}</Typography>
+						</ListItem>
+					))}
+				</List>
+			</Box>
+		</ThemeProvider>
+	)
+}
+export default FieldVisibilityController

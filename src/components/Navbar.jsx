@@ -1,17 +1,16 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
 import {
   AppBar,
-  Toolbar,
-  Typography,
+  Box,
   Button,
   IconButton,
-  Popover,
-  Box,
   MenuItem,
+  Popover,
+  Toolbar,
+  Typography,
 } from "@mui/material";
 import { styled } from "@mui/system";
-import MenuIcon from "@mui/icons-material/Menu";
+import React from "react";
+import { NavLink } from "react-router-dom";
 
 const CustomAppBar = styled(AppBar)({
   background: "#070e34",
@@ -38,7 +37,13 @@ const Navbar = () => {
   const id = open ? "simple-popover" : undefined;
 
   return (
-    <CustomAppBar position="static">
+    <CustomAppBar
+      position="static"
+      style={{
+        backgroundColor: "rgba(0, 0, 0, 0)",
+        marginBottom: "40px",
+      }}
+    >
       <Toolbar>
         <IconButton edge="start" color="inherit" aria-label="menu"></IconButton>
         <Typography
@@ -53,6 +58,9 @@ const Navbar = () => {
         <Button color="inherit" component={NavLink} to="/routers">
           Routers
         </Button>
+        <Button color="inherit" component={NavLink} to="/access_points">
+          AC Points
+        </Button>
         <Button color="inherit" component={NavLink} to="/obstacles">
           Obstacles
         </Button>
@@ -62,6 +70,9 @@ const Navbar = () => {
           onMouseEnter={handleClick}
         >
           Charts
+        </Button>
+        <Button color="inherit" component={NavLink} to="/heatmap">
+          Heatmap
         </Button>
         <CustomPopover
           id={id}

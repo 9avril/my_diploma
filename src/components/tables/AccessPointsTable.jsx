@@ -31,7 +31,6 @@ const AccessPointsTable = () => {
             defaultColDef={{
               resizable: true,
               minWidth: 150,
-              cellStyle: { "white-space": "normal", "line-height": "28px" },
               sortable: true,
               filter: true,
             }}
@@ -39,12 +38,7 @@ const AccessPointsTable = () => {
             onFirstDataRendered={onGridReady}
             rowSelection="multiple"
             suppressRowClickSelection
-            getRowStyle={(params) => {
-              return {
-                backgroundColor:
-                  params.node.rowIndex % 2 === 0 ? "#ffffff" : "#f3f3f3",
-              };
-            }}
+            getRowStyle={(params) => {}}
           />
         </div>
         {columnApi && (

@@ -1,0 +1,10 @@
+.backgroundAnime {
+  overflow: hidden;
+  background: rgb(23, 24, 43);
+  background: linear-gradient(
+    90deg,
+    rgba(11, 17, 41, 1) 14%,
+    rgba(11, 26, 44, 1) 65%,
+    rgba(12, 18, 36, 1) 98%
+  );
+}

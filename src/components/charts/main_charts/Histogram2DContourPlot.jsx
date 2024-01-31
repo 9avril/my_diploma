@@ -3,7 +3,6 @@ import Plot from "react-plotly.js";
 import "../plotstyles.css";
 const Histogram2DContourPlot = ({ floorData }) => {
   const data = floorData[0].APFound;
-
   const x = data.flatMap((item) => item.LS.map((row) => row[0]));
   const y = data.flatMap((item) => item.LS.map((row) => row[1]));
 

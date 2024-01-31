@@ -1,132 +1,140 @@
-import React, { useState } from "react";
-import styles from "./SignalLossCalculator.module.css";
+import { Button, InputLabel, MenuItem, Select, TextField } from '@mui/material'
+import React, { useState } from 'react'
 
 const SignalLossCalculator = ({ obstacles }) => {
-  const [bandwidth, setBandwidth] = useState("");
-  const [selectedObstacles, setSelectedObstacles] = useState([
-    { obstacleType: "", material: "" },
-  ]);
-  const [calculatedBandwidth, setCalculatedBandwidth] = useState(null);
+	const [bandwidth, setBandwidth] = useState('')
+	const [selectedObstacles, setSelectedObstacles] = useState([
+		{ obstacleType: '', material: '' },
+	])
+	const [calculatedBandwidth, setCalculatedBandwidth] = useState(null)
 
-  const handleChangeObstacle = (e, index) => {
-    const newObstacles = [...selectedObstacles];
-    newObstacles[index].obstacleType = e.target.value;
-    setSelectedObstacles(newObstacles);
-  };
+	const handleChangeObstacle = (e, index) => {
+		const newObstacles = [...selectedObstacles]
+		newObstacles[index].obstacleType = e.target.value
+		setSelectedObstacles(newObstacles)
+	}
 
-  const handleChangeMaterial = (e, index) => {
-    const newObstacles = [...selectedObstacles];
-    newObstacles[index].material = e.target.value;
-    setSelectedObstacles(newObstacles);
-  };
+	const handleChangeMaterial = (e, index) => {
+		const newObstacles = [...selectedObstacles]
+		newObstacles[index].material = e.target.value
+		setSelectedObstacles(newObstacles)
+	}
 
-  const uniqueMaterials = [
-    ...new Set(obstacles.map((obstacle) => obstacle.material)),
-  ];
+	const uniqueMaterials = [
+		...new Set(obstacles.map(obstacle => obstacle.material)),
+	]
 
-  const addObstacle = () => {
-    setSelectedObstacles([
-      ...selectedObstacles,
-      { obstacleType: "", material: "" },
-    ]);
-  };
+	const addObstacle = () => {
+		setSelectedObstacles([
+			...selectedObstacles,
+			{ obstacleType: '', material: '' },
+		])
+	}
 
-  const calculateBandwidth = () => {
-    let newBandwidth = parseFloat(bandwidth);
-    selectedObstacles.forEach((selectedObstacle) => {
-      const obstacle = obstacles.find(
-        (o) =>
-          o.obstacle_type === selectedObstacle.obstacleType &&
-          o.material === selectedObstacle.material
-      );
-      if (obstacle) {
-        const signalLossPercent = parseFloat(obstacle.signal_loss_percent);
-        newBandwidth = newBandwidth * (1 - signalLossPercent / 100);
-      }
-    });
-    setCalculatedBandwidth(newBandwidth.toFixed(2));
-  };
+	const calculateBandwidth = () => {
+		let newBandwidth = parseFloat(bandwidth)
+		selectedObstacles.forEach(selectedObstacle => {
+			const obstacle = obstacles.find(
+				o => o.obstacle_type === selectedObstacle.obstacleType
+			)
+			if (obstacle) {
+				const signalLossPercent = parseFloat(
+					obstacle.signal_loss_percent
+				)
+				newBandwidth = newBandwidth * (1 - signalLossPercent / 100)
+			}
+		})
+		setCalculatedBandwidth(newBandwidth.toFixed(2))
+	}
 
-  return (
-    <div className={styles.container}>
-      <h3 className={`text-xl font-semibold mb-4 ${styles.textWhite}`}>
-        Signal Loss Calculator
-      </h3>
-      <div className="mb-4">
-        <label htmlFor="bandwidth" className={styles.textWhite}>
-          Router Bandwidth (Mbps):
-        </label>
-        <input
-          type="number"
-          id="bandwidth"
-          className={`ml-2 ${styles.inputSelect}`}
-          value={bandwidth}
-          onChange={(e) => setBandwidth(e.target.value)}
-        />
-      </div>
-      {selectedObstacles.map((selectedObstacle, index) => (
-        <div key={index} className="mb-4">
-          <div className="mb-2">
-            <label htmlFor={`obstacle-${index}`} className={styles.textWhite}>
-              Obstacle:
-            </label>
-            <select
-              id={`obstacle-${index}`}
-              className={`block mt-1 ${styles.inputSelect}`}
-              value={selectedObstacle.obstacleType}
-              onChange={(e) => handleChangeObstacle(e, index)}
-            >
-              <option value="">Select an obstacle</option>
-              {obstacles.map((obstacle) => (
-                <option
-                  key={obstacle.obstacle_type}
-                  value={obstacle.obstacle_type}
-                >
-                  {obstacle.obstacle_type}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div>
-            <label htmlFor={`material-${index}`} className={styles.textWhite}>
-              Material:
-            </label>
-            <select
-              value={selectedObstacle.material}
-              onChange={(e) => handleChangeMaterial(e, index)}
-              className={`block mt-1 ${styles.inputSelect}`}
-            >
-              <option value="">Select a material</option>
-              {uniqueMaterials.map((materialItem) => (
-                <option key={materialItem} value={materialItem}>
-                  {materialItem}
-                </option>
-              ))}
-            </select>
-          </div>
-        </div>
-      ))}
+	return (
+		<div className='bg-[rgba(20,40,70,1)] mt-3 p-4 rounded-2xl text-white w-80'>
+			<h3 className='text-xl'>Signal Loss Calculator</h3>
+			<TextField
+				label='Router Bandwidth (Mbps):'
+				type='number'
+				value={bandwidth}
+				onChange={e => setBandwidth(e.target.value)}
+				sx={{ color: 'white', width: '200px' }}
+				InputProps={{
+					inputProps: { style: { color: 'white' } },
+				}}
+			/>
+			{selectedObstacles.map((selectedObstacle, index) => (
+				<div key={index} className='my-2'>
+					<InputLabel
+						id={`obstacle-${index}-label`}
+						className='text-white'
+					>
+						Obstacles
+					</InputLabel>
+					<Select
+						labelId={`obstacle-${index}-label`}
+						value={selectedObstacle.obstacleType}
+						onChange={e => handleChangeObstacle(e, index)}
+						className='text-white mb-2'
+						sx={{ color: 'white', width: '212px' }}
+					>
+						<MenuItem value=''>
+							<em>Obstacles</em>
+						</MenuItem>
+						{obstacles.map(obstacle => (
+							<MenuItem
+								key={obstacle.obstacle_type}
+								value={obstacle.obstacle_type}
+							>
+								{obstacle.obstacle_type}
+							</MenuItem>
+						))}
+					</Select>
 
-      <button
-        onClick={addObstacle}
-        className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mb-4"
-      >
-        Add Obstacle
-      </button>
-      <button
-        onClick={calculateBandwidth}
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-      >
-        Calculate
-      </button>
-      {calculatedBandwidth && (
-        <p className={`mt-4 ${styles.textWhite}`}>
-          Bandwidth after passing through the obstacles:{" "}
-          <strong>{calculatedBandwidth} Mbps</strong>
-        </p>
-      )}
-    </div>
-  );
-};
+					<InputLabel
+						id={`material-${index}-label`}
+						className='text-white'
+					>
+						Materials
+					</InputLabel>
+					<Select
+						labelId={`material-${index}-label`}
+						value={selectedObstacle.material}
+						onChange={e => handleChangeMaterial(e, index)}
+						className='text-white mb-2'
+						sx={{ color: 'white', width: '212px' }}
+					>
+						<MenuItem value=''>
+							<em>Select a material</em>
+						</MenuItem>
+						{uniqueMaterials.map(materialItem => (
+							<MenuItem key={materialItem} value={materialItem}>
+								{materialItem}
+							</MenuItem>
+						))}
+					</Select>
+				</div>
+			))}
+			<Button
+				variant='contained'
+				color='primary'
+				onClick={addObstacle}
+				className='mr-4'
+			>
+				Add Obstacle
+			</Button>
+			<Button
+				variant='contained'
+				color='secondary'
+				onClick={calculateBandwidth}
+			>
+				Calculate
+			</Button>
+			{calculatedBandwidth && (
+				<p>
+					Bandwidth after passing through the obstacles:{' '}
+					<strong>{calculatedBandwidth} Mbps</strong>
+				</p>
+			)}
+		</div>
+	)
+}
 
-export default SignalLossCalculator;
+export default SignalLossCalculator

@@ -363,4 +363,6 @@ const firstFloorData = [
   },
 ];
 
+let transformedData = [];
+
 export default firstFloorData;
